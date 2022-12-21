@@ -2,7 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import com.mygdx.game.MyGdxGame;
+import com.mygdx.game.TankStars;
 
 // import com.mygdx.game.useGL20;
 
@@ -14,7 +14,7 @@ public class DesktopLauncher {
     config.setForegroundFPS(60);
     config.setTitle("Tank Stars");
     // config.useGL20 = true;
-    config.setWindowedMode(800, 480);
-    new Lwjgl3Application(new MyGdxGame(), config);
+    config.setWindowedMode(844, 475);
+    new Lwjgl3Application(new TankStars(), config);
   }
 }

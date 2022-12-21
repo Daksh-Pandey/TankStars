@@ -1,62 +1,56 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputAdapter;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
-class LoadingScreen implements Screen {
+public class LoadingScreen extends ScreenAdapter {
+    private TankStars newGame;
+    private Sprite sprite;
+    private BitmapFont font;
 
-  Sprite sprite;
+    public LoadingScreen(TankStars game) {
+        this.newGame = game;
+        sprite = new Sprite(new Texture(Gdx.files.internal("home_screen.jpg")));
+        sprite.setPosition(0, 0);
+        sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        font = new BitmapFont(Gdx.files.internal("Arial Black.fnt"),false);
+    }
 
-  private MyGdxGame game;
+    @Override
+    public void show() {
+        Gdx.input.setInputProcessor(new InputAdapter() {
+            @Override
+            public boolean keyDown(int keyCode) {
+                if (keyCode == Input.Keys.SPACE) {
+                    newGame.setScreen(new HomeScreen(newGame));
+                }
+                return true;
+            }
+        });
+    }
 
-  public LoadingScreen(MyGdxGame game) {
-    this.game = game;
-    sprite = new Sprite(new Texture(Gdx.files.internal("home_screen.jpg")));
-    sprite.setPosition(0, 0);
-    sprite.setSize(800, 400);
-  }
+    @Override
+    public void render(float delta) {
+        // TODO Auto-generated method stub
+        newGame.batch.begin();
+        sprite.draw(newGame.batch);
+        font.draw(newGame.batch, "Press Space to Continue", 225, 100);
+        newGame.batch.end();
 
-  @Override
-  public void show() {}
+    }
 
-  @Override
-  public void render(float delta) {
-    // TODO Auto-generated method stub
-    game.batch.begin();
-    sprite.draw(game.batch);
-    game.batch.end();
-  }
+    @Override
+    public void hide() {
+        Gdx.input.setInputProcessor(null);
+    }
 
-  @Override
-  public void resize(int width, int height) {
-    // TODO Auto-generated method stub
-
-  }
-
-  @Override
-  public void pause() {
-    // TODO Auto-generated method stub
-
-  }
-
-  @Override
-  public void resume() {
-    // TODO Auto-generated method stub
-
-  }
-
-  @Override
-  public void hide() {
-    // TODO Auto-generated method stub
-
-  }
-
-  @Override
-  public void dispose() {
-    sprite.getTexture().dispose();
-    // TODO Auto-generated method stub
-
-  }
+    @Override
+    public void dispose() {
+        font.dispose();
+    }
 }
