@@ -1,0 +1,57 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "terrain1.tmx",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "terrain1.tmx": {
+            "scale": 8,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 662.0625,
+                "y": 416.4375
+            }
+        },
+        "terrain1.tmx#terrain1": {
+            "scaleInDock": 1
+        },
+        "terrain2.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 416.3333333333333,
+                "y": 231.66666666666666
+            }
+        },
+        "terrain2.tmx#terrain2": {
+            "scaleInDock": 0.5
+        }
+    },
+    "last.imagePath": "D:/Tank Stars/assets",
+    "map.height": 475,
+    "map.lastUsedFormat": "tmx",
+    "map.layerDataFormat": null,
+    "map.tileHeight": 1,
+    "map.tileWidth": 1,
+    "map.width": 844,
+    "openFiles": [
+        "terrain1.tmx",
+        "terrain2.tmx"
+    ],
+    "project": "map.tiled-project",
+    "recentFiles": [
+        "terrain2.tmx",
+        "terrain1.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 1,
+        "width": 1
+    }
+}
