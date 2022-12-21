@@ -33,7 +33,7 @@ public class Play_Screen extends ScreenAdapter {
         renderer = new OrthogonalTiledMapRenderer(map);
 
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, 800, 480);
+        camera.setToOrtho(false, 844, 475);
         camera.update();
     }
 
