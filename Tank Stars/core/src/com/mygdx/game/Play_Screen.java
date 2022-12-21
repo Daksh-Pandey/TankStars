@@ -21,7 +21,7 @@ public class Play_Screen extends ScreenAdapter {
 
     public Play_Screen(TankStars game) {
         this.newGame = game;
-        playscreen = new Sprite(new Texture(Gdx.files.internal("bg.jpeg")));
+        playscreen = new Sprite(new Texture(Gdx.files.internal("bg.png")));
         playscreen.setPosition(0, 0);
         playscreen.setSize(844, 475);
 
@@ -33,7 +33,7 @@ public class Play_Screen extends ScreenAdapter {
         renderer = new OrthogonalTiledMapRenderer(map);
 
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, 800, 480);
+        camera.setToOrtho(false, 844, 475);
         camera.update();
     }
 
