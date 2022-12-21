@@ -7,10 +7,15 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.World;
 
 public class Play_Screen extends ScreenAdapter {
     private final TankStars newGame;
@@ -18,6 +23,8 @@ public class Play_Screen extends ScreenAdapter {
     private final Sprite playscreen;
     private final TiledMapRenderer renderer;
     private final OrthographicCamera camera;
+    private final World world;
+    private final BodyDef bodyDef;
 
     public Play_Screen(TankStars game) {
         this.newGame = game;
@@ -35,6 +42,14 @@ public class Play_Screen extends ScreenAdapter {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 844, 475);
         camera.update();
+
+        world = new World(new Vector2(0, -10), true);
+
+        bodyDef = new BodyDef();
+        bodyDef.type = BodyDef.BodyType.DynamicBody;
+        bodyDef.position.set(0, 0);
+
+
     }
 
     @Override
@@ -66,10 +81,23 @@ public class Play_Screen extends ScreenAdapter {
         renderer.render();
 
         camera.update();
+
+        world.step(1 / 60f, 6, 2);
     }
 
     @Override
     public void hide() {
         Gdx.input.setInputProcessor(null);
+
+
+    }
+
+    public void tank() {
+        MapObject tank = new MapObject();
+        tank.getProperties().put("tank", "tank");
+        MapObjects objects = new MapObjects();
+        objects.add(tank);
+
+        
     }
 }
