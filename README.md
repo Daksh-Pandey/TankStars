@@ -8,4 +8,4 @@ This game was designed in Java using [LibGDX](https://libgdx.com/). It is based 
 render of the mobile game. We have only implemented clickable buttons (forked from [gdx-skins/glassy](https://github.com/Daksh-Pandey/gdx-skins/tree/master/glassy) and
 Physics2d module in tank fighting.
 
-This project was made by me and [hyphenXY](https://github.com/hyphenXY).
+This project was made by me and [@Shivam Yadav](https://github.com/hyphenXY).
